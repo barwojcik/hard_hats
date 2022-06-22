@@ -44,9 +44,25 @@ if __name__ == "__main__":
 
   model = build_model(cfg)
 
-  coco_evaluator = ClassSpecificCOCOEvaluator("direct_test", ("bbox", ), False, output_dir=cfg.OUTPUT_DIR + "/coco_results_wearing/", kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS, class_ids = [1,2])
-  hh_on_coco_evaluator = ClassSpecificCOCOEvaluator("direct_test", ("bbox", ), False, output_dir=cfg.OUTPUT_DIR + "/coco_results_wearing/", kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS, class_ids = [1])
-  hh_off_coco_evaluator = ClassSpecificCOCOEvaluator("direct_test", ("bbox",), False, output_dir=cfg.OUTPUT_DIR + "/coco_results_wearing/", kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS, class_ids = [2])
+  coco_evaluator = ClassSpecificCOCOEvaluator("direct_test", 
+                                              ("bbox", ), 
+                                              False, 
+                                              output_dir=cfg.OUTPUT_DIR + "/coco_results_wearing/", 
+                                              kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS, 
+                                              class_ids = [1,2])
+  
+  hh_on_coco_evaluator = ClassSpecificCOCOEvaluator("direct_test", 
+                                                    ("bbox", ), 
+                                                    False, output_dir=cfg.OUTPUT_DIR + "/coco_results_wearing/", 
+                                                    kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS, 
+                                                    class_ids = [1])
+  
+  hh_off_coco_evaluator = ClassSpecificCOCOEvaluator("direct_test", 
+                                                     ("bbox",), 
+                                                     False, 
+                                                     output_dir=cfg.OUTPUT_DIR + "/coco_results_wearing/", 
+                                                     kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS, 
+                                                     class_ids = [2])
 
   evaluators = MyDatasetEvaluators([coco_evaluator, hh_on_coco_evaluator, hh_off_coco_evaluator])
   loader = build_detection_test_loader(cfg,"direct_test", mapper = DatasetMapper(cfg, is_train=False, augmentations=[]))
