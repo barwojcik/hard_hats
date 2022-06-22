@@ -1,0 +1,7 @@
+_BASE_: "HH-Base-Keypoint-RCNN-FPN.yaml"
+MODEL:
+  RESNETS:
+    DEPTH: 50
+  ROI_HEADS:
+    SCORE_THRESH_TEST: 0.79
+  WEIGHTS: "https://dl.fbaipublicfiles.com/detectron2/COCO-Keypoints/keypoint_rcnn_R_50_FPN_3x/137849621/model_final_a6e10b.pkl"
