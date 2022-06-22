@@ -1,4 +1,0 @@
-_BASE_: "HH-Base-Keypoint-RCNN-FPN.yaml"
-MODEL:
-  RESNETS:
-    DEPTH: 101
