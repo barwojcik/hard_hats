@@ -39,9 +39,24 @@ if __name__ == "__main__":
 
   model = build_model(cfg)
 
-  coco_evaluator = COCOEvaluator("test", ("bbox",), False, output_dir=cfg.OUTPUT_DIR + "/coco_results_detection/", kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS)
-  hh_coco_evaluator = ClassSpecificCOCOEvaluator("test", ("bbox", ), False, output_dir=cfg.OUTPUT_DIR + "/coco_results_detection/", kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS, class_ids = [1])
-  person_coco_evaluator = ClassSpecificCOCOEvaluator("test", ("bbox", "keypoints"), False, output_dir=cfg.OUTPUT_DIR + "/coco_results_detection/", kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS, class_ids = [2])
+  coco_evaluator = COCOEvaluator("test", 
+                                 ("bbox",), 
+                                 False, 
+                                 output_dir=cfg.OUTPUT_DIR + "/coco_results_detection/", 
+                                 kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS)
+  
+  hh_coco_evaluator = ClassSpecificCOCOEvaluator("test", 
+                                                 ("bbox", ), 
+                                                 False, 
+                                                 output_dir=cfg.OUTPUT_DIR + "/coco_results_detection/", 
+                                                 kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS, 
+                                                 class_ids = [1])
+  
+  person_coco_evaluator = ClassSpecificCOCOEvaluator("test", 
+                                                     ("bbox", "keypoints"), 
+                                                     False, 
+                                                     output_dir=cfg.OUTPUT_DIR + "/coco_results_detection/", 
+                                                     kpt_oks_sigmas=cfg.TEST.KEYPOINT_OKS_SIGMAS, class_ids = [2])
 
   evaluators = MyDatasetEvaluators([coco_evaluator, hh_coco_evaluator, person_coco_evaluator])
   loader = build_detection_test_loader(cfg,"test", mapper = DatasetMapper(cfg, is_train=False, augmentations=[]))
