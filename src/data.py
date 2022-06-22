@@ -3,8 +3,8 @@ from detectron2.data.datasets import register_coco_instances
 
 def register_train():
   register_coco_instances("train", {}, 
-                        "/content/drive/MyDrive/hard_hats/dataset/annotations/train/train_hard hat+person.json",
-                        "/content/drive/MyDrive/hard_hats/dataset/images/train")
+                        "dataset/annotations/train/train_hard hat+person.json",
+                        "dataset/images/train")
 
   MetadataCatalog.get('train').keypoint_names = ["head"]
   MetadataCatalog.get('train').keypoint_flip_map = []
@@ -12,8 +12,8 @@ def register_train():
 
 def register_test():
   register_coco_instances("test", {}, 
-                        "/content/drive/MyDrive/hard_hats/dataset/annotations/test/test_hard hat+person.json",
-                        "/content/drive/MyDrive/hard_hats/dataset/images/test")
+                        "dataset/annotations/test/test_hard hat+person.json",
+                        "dataset/images/test")
 
   MetadataCatalog.get('test').keypoint_names = ["head"]
   MetadataCatalog.get('test').keypoint_flip_map = []
@@ -21,10 +21,10 @@ def register_test():
 
 def register_direct_train():
   register_coco_instances("direct_train", {}, 
-                        "/content/drive/MyDrive/hard_hats/dataset/annotations/train/train_wearing.json",
-                        "/content/drive/MyDrive/hard_hats/dataset/images/train")
+                        "dataset/annotations/train/train_wearing.json",
+                        "dataset/images/train")
 
 def register_direct_test():
   register_coco_instances("direct_test", {}, 
-                        "/content/drive/MyDrive/hard_hats/dataset/annotations/test/test_wearing.json",
-                        "/content/drive/MyDrive/hard_hats/dataset/images/test")
+                        "dataset/annotations/test/test_wearing.json",
+                        "dataset/images/test")
