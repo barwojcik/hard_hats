@@ -1,6 +1,6 @@
 # Hard hat wearing detection based on head keypoint localization :rescue_worker_helmet:
 
-This is an implementation of a solution developed for hard hat wearing detection. A combination of object detection and head keypoint localization is proposed. In tests, this solution surpassed the previous methods based on the relative bounding box position of different instances, as well as direct detection of hard hat wearers and non-wearers.
+This is a detectron2 based implementation of a solution developed for hard hat wearing detection. A combination of object detection and head keypoint localization is proposed. In tests, this solution surpassed the previous methods based on the relative bounding box position of different instances, as well as direct detection of hard hat wearers and non-wearers.
 
 <p align="center">
   <img src="/ilustrations/fig1-1.png" width=600/>
